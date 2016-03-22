@@ -1,0 +1,9 @@
+
+{% extends "VIVADanceBundle:layout.html.twig" %}
+{% block title %} {{parent()}}- Inscriptions {% endblock %}
+
+{% block centrale %}
+    <h3> Formulaire d'inscription </h3>
+
+    {{ include('VIVADanceBundle:Dance:formulaire.html.twig')}} 
+{% endblock %}

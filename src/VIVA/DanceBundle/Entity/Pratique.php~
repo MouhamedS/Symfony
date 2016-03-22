@@ -1,0 +1,51 @@
+<?php
+
+namespace VIVA\DanceBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Pratique
+ *
+ * @ORM\Table(name="pratique")
+ * @ORM\Entity(repositoryClass="VIVA\DanceBundle\Repository\PratiqueRepository")
+ */
+class Pratique
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="VIVA\DanceBundle\Entity\Dance")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $dance;
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="VIVA\DanceBundle\Entity\Soiree")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $soiree;
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="VIVA\DanceBundle\Entity\Salle")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $salle;
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+}

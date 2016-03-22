@@ -1,0 +1,153 @@
+<?php
+
+namespace VIVA\DanceBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Reglement
+ *
+ * @ORM\Table(name="reglement")
+ * @ORM\Entity(repositoryClass="VIVA\DanceBundle\Repository\ReglementRepository")
+ */
+class Reglement
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date", type="date")
+     */
+    private $date;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="montant", type="smallint")
+     */
+    private $montant;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date_depot", type="date")
+     */
+    private $dateDepot;
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="VIVA\DanceBundle\Entity\Inscription")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $inscription;
+
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set date
+     *
+     * @param \DateTime $date
+     * @return Reglement
+     */
+    public function setDate($date)
+    {
+        $this->date = $date;
+
+        return $this;
+    }
+
+    /**
+     * Get date
+     *
+     * @return \DateTime 
+     */
+    public function getDate()
+    {
+        return $this->date;
+    }
+
+    /**
+     * Set montant
+     *
+     * @param integer $montant
+     * @return Reglement
+     */
+    public function setMontant($montant)
+    {
+        $this->montant = $montant;
+
+        return $this;
+    }
+
+    /**
+     * Get montant
+     *
+     * @return integer 
+     */
+    public function getMontant()
+    {
+        return $this->montant;
+    }
+
+    /**
+     * Set dateDepot
+     *
+     * @param \DateTime $dateDepot
+     * @return Reglement
+     */
+    public function setDateDepot($dateDepot)
+    {
+        $this->dateDepot = $dateDepot;
+
+        return $this;
+    }
+
+    /**
+     * Get dateDepot
+     *
+     * @return \DateTime 
+     */
+    public function getDateDepot()
+    {
+        return $this->dateDepot;
+    }
+
+    /**
+     * Set inscription
+     *
+     * @param \VIVA\DanceBundle\Entity\Inscription $inscription
+     * @return Reglement
+     */
+    public function setInscription(\VIVA\DanceBundle\Entity\Inscription $inscription)
+    {
+        $this->inscription = $inscription;
+
+        return $this;
+    }
+
+    /**
+     * Get inscription
+     *
+     * @return \VIVA\DanceBundle\Entity\Inscription 
+     */
+    public function getInscription()
+    {
+        return $this->inscription;
+    }
+}

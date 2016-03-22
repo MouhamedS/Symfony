@@ -1,0 +1,18 @@
+{# empty Twig template #}
+
+<div class="Centrale">
+  {{ form_start(form) }}
+  {{form_errors(form)}}
+  <fieldset class="info">
+	<legend> Inscription</legend>
+        {{form_label(form.etat,"Etat d'inscription")}}
+        {{form_errors(form.etat)}}
+        {{form_widget(form.adherent.nom)}}
+        {#Nom#}
+        {{form_label(form.adherent.nom, "Nom")}}
+        {{form_errors(form.adherent.nom)}}
+        {{form_widget(form.adherent.nom)}}
+        
+  </fieldset>
+  {{form_end(form)}}
+</div>

@@ -1,0 +1,25 @@
+
+{#Page d'accueil#}
+{% extends "VIVADanceBundle:layout.html.twig" %}
+{% block title %} {{parent()}} Accueil {% endblock%}
+
+{% block centrale %}
+ <div class="Centrale">
+<h2>Bienvennue  sur Salsa Danse Orleans</h2>
+<h3 id="pres"> Nos Danses </h3>
+
+<ul>
+    {% for dance in listDances %}
+    <li>{{dance.nom}} </li>
+    {% endfor %}
+</ul>
+<h2>Bienvennue  sur Salsa Danse Orleans</h2>
+<h3> Listes des Professeurs</h3>
+<ul>
+{%  for prof in listProfesseurs %}
+    <li>{{prof.nom}} {{prof.prenom}} </li>
+    {% endfor %}
+</ul>
+</div>
+    
+{% endblock %}

@@ -1,0 +1,5 @@
+viva_dance:
+    resource: "@VIVADanceBundle/Resources/config/routing.yml"
+    prefix:   /dance
+
+

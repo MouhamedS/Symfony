@@ -1,0 +1,26 @@
+viva_dance_home:
+    path:     /{page}
+    defaults: {_controller: VIVADanceBundle:Dance:index, page : 1}
+    requirements:       
+        page: \d*
+    
+viva_dance_actus: 
+    path:     /actualites
+    defaults: { _controller:VIVADanceBundle:Dance:actu}
+
+viva_dance_cours:
+    path:     /cours
+    defaults: { _controller: VIVADanceBundle:Dance:cours}
+
+viva_dance_stage:
+    path:     /stage
+    defaults: { _controller:  VIVADanceBundle:Dance:stage}
+
+viva_dance_galerie:
+    path:     /galerie
+    defaults: { _controller: VIVADanceBundle:Dance:galerie}
+    
+viva_dance_inscript: 
+     path:     /inscription
+     defaults: { _controller:VIVADanceBundle:Dance:inscript }
+     

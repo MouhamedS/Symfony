@@ -1,0 +1,219 @@
+<?php
+
+namespace VIVA\DanceBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+/**
+ * Cours
+ *
+ * @ORM\Table(name="cours")
+ * @ORM\Entity(repositoryClass="VIVA\DanceBundle\Repository\CoursRepository")
+ */
+class Cours
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="jour", type="date")
+     */
+    private $jour;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="heure_debut", type="time")
+     */
+    private $heureDebut;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="heure_fin", type="time")
+     */
+    private $heureFin;
+    
+    /**
+     * @ORM\ManyToMany(targetEntity="VIVA\DanceBundle\Entity\Niveau", cascade={"persist"})
+     */
+    private $niveau;
+    
+    /**
+     * @ORM\ManyToMany(targetEntity="VIVA\DanceBundle\Entity\Professeur", cascade={"persist"})
+     */
+    private $professeur;
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="VIVA\DanceBundle\Entity\Salle")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $salle;
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="VIVA\DanceBundle\Entity\Dance")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $dance;
+    
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set jour
+     *
+     * @param \DateTime $jour
+     * @return Cours
+     */
+    public function setJour($jour)
+    {
+        $this->jour = $jour;
+
+        return $this;
+    }
+
+    /**
+     * Get jour
+     *
+     * @return \DateTime 
+     */
+    public function getJour()
+    {
+        return $this->jour;
+    }
+
+    /**
+     * Set heureDebut
+     *
+     * @param \DateTime $heureDebut
+     * @return Cours
+     */
+    public function setHeureDebut($heureDebut)
+    {
+        $this->heureDebut = $heureDebut;
+
+        return $this;
+    }
+
+    /**
+     * Get heureDebut
+     *
+     * @return \DateTime 
+     */
+    public function getHeureDebut()
+    {
+        return $this->heureDebut;
+    }
+
+    /**
+     * Set heureFin
+     *
+     * @param \DateTime $heureFin
+     * @return Cours
+     */
+    public function setHeureFin($heureFin)
+    {
+        $this->heureFin = $heureFin;
+
+        return $this;
+    }
+
+    /**
+     * Get heureFin
+     *
+     * @return \DateTime 
+     */
+    public function getHeureFin()
+    {
+        return $this->heureFin;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->niveau = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add niveau
+     *
+     * @param \VIVA\DanceBundle\Entity\Niveeau $niveau
+     * @return Cours
+     */
+    public function addNiveau(\VIVA\DanceBundle\Entity\Niveeau $niveau)
+    {
+        $this->niveau[] = $niveau;
+
+        return $this;
+    }
+
+    /**
+     * Remove niveau
+     *
+     * @param \VIVA\DanceBundle\Entity\Niveeau $niveau
+     */
+    public function removeNiveau(\VIVA\DanceBundle\Entity\Niveeau $niveau)
+    {
+        $this->niveau->removeElement($niveau);
+    }
+
+    /**
+     * Get niveau
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getNiveau()
+    {
+        return $this->niveau;
+    }
+
+    /**
+     * Add professeur
+     *
+     * @param \VIVA\DanceBundle\Entity\Niveeau $professeur
+     * @return Cours
+     */
+    public function addProfesseur(\VIVA\DanceBundle\Entity\Niveeau $professeur)
+    {
+        $this->professeur[] = $professeur;
+
+        return $this;
+    }
+
+    /**
+     * Remove professeur
+     *
+     * @param \VIVA\DanceBundle\Entity\Niveeau $professeur
+     */
+    public function removeProfesseur(\VIVA\DanceBundle\Entity\Niveeau $professeur)
+    {
+        $this->professeur->removeElement($professeur);
+    }
+
+    /**
+     * Get professeur
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getProfesseur()
+    {
+        return $this->professeur;
+    }
+}
