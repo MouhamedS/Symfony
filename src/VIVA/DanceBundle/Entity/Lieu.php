@@ -45,7 +45,7 @@ class Lieu
     /**
      * @var string
      *
-     * @ORM\Column(name="cplieu", type="string", length=255)
+     * @ORM\Column(name="cplieu", type="smallint")
      */
     private $cplieu;
 

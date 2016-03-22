@@ -3,6 +3,7 @@
 namespace VIVA\DanceBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Inscription
@@ -37,15 +38,19 @@ class Inscription
     
     /**
      * @ORM\ManyToOne(targetEntity="VIVA\DanceBundle\Entity\Forfait")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
      */
     private $forfait;
     
     /**
      * @ORM\OneToOne(targetEntity="VIVA\DanceBundle\Entity\Adherent")
-     * @ORM\JoinColumn(nullable=true)
+     * @ORM\JoinColumn(nullable=false)
      */
     private $adherent;
+    
+    public function __construct() {
+        $this->date= new \DateTime();
+    }
 
    
     /**
@@ -105,4 +110,50 @@ class Inscription
     }
 
     
+
+    /**
+     * Set forfait
+     *
+     * @param \VIVA\DanceBundle\Entity\Forfait $forfait
+     * @return Inscription
+     */
+    public function setForfait(\VIVA\DanceBundle\Entity\Forfait $forfait)
+    {
+        $this->forfait = $forfait;
+
+        return $this;
+    }
+
+    /**
+     * Get forfait
+     *
+     * @return \VIVA\DanceBundle\Entity\Forfait 
+     */
+    public function getForfait()
+    {
+        return $this->forfait;
+    }
+
+    /**
+     * Set adherent
+     *
+     * @param \VIVA\DanceBundle\Entity\Adherent $adherent
+     * @return Inscription
+     */
+    public function setAdherent(\VIVA\DanceBundle\Entity\Adherent $adherent = null)
+    {
+        $this->adherent = $adherent;
+
+        return $this;
+    }
+
+    /**
+     * Get adherent
+     *
+     * @return \VIVA\DanceBundle\Entity\Adherent 
+     */
+    public function getAdherent()
+    {
+        return $this->adherent;
+    }
 }

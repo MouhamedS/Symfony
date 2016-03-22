@@ -38,13 +38,13 @@ class Inscription
     
     /**
      * @ORM\ManyToOne(targetEntity="VIVA\DanceBundle\Entity\Forfait")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
      */
     private $forfait;
     
     /**
      * @ORM\OneToOne(targetEntity="VIVA\DanceBundle\Entity\Adherent")
-     * @ORM\JoinColumn(nullable=true)
+     * @ORM\JoinColumn(nullable=false)
      */
     private $adherent;
     

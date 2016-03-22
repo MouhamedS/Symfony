@@ -109,4 +109,73 @@ class Regelement_Stage
     {
         return $this->montant;
     }
+
+    /**
+     * Set stagiaire
+     *
+     * @param \VIVA\DanceBundle\Entity\Stagiaire $stagiaire
+     * @return Regelement_Stage
+     */
+    public function setStagiaire(\VIVA\DanceBundle\Entity\Stagiaire $stagiaire)
+    {
+        $this->stagiaire = $stagiaire;
+
+        return $this;
+    }
+
+    /**
+     * Get stagiaire
+     *
+     * @return \VIVA\DanceBundle\Entity\Stagiaire 
+     */
+    public function getStagiaire()
+    {
+        return $this->stagiaire;
+    }
+
+    /**
+     * Set stage
+     *
+     * @param \VIVA\DanceBundle\Entity\Stage $stage
+     * @return Regelement_Stage
+     */
+    public function setStage(\VIVA\DanceBundle\Entity\Stage $stage)
+    {
+        $this->stage = $stage;
+
+        return $this;
+    }
+
+    /**
+     * Get stage
+     *
+     * @return \VIVA\DanceBundle\Entity\Stage 
+     */
+    public function getStage()
+    {
+        return $this->stage;
+    }
+
+    /**
+     * Set type_reglement
+     *
+     * @param \VIVA\DanceBundle\Entity\Type_Reglement $typeReglement
+     * @return Regelement_Stage
+     */
+    public function setTypeReglement(\VIVA\DanceBundle\Entity\Type_Reglement $typeReglement)
+    {
+        $this->type_reglement = $typeReglement;
+
+        return $this;
+    }
+
+    /**
+     * Get type_reglement
+     *
+     * @return \VIVA\DanceBundle\Entity\Type_Reglement 
+     */
+    public function getTypeReglement()
+    {
+        return $this->type_reglement;
+    }
 }

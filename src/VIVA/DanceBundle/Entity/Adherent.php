@@ -79,7 +79,7 @@ class Adherent
     
      /**
      * @ORM\ManyToOne(targetEntity="VIVA\DanceBundle\Entity\Remise")
-     *  @ORM\JoinColumn(nullable=false)
+     *  @ORM\JoinColumn(nullable=true)
      */
      private $remise;
 
