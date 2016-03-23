@@ -65,7 +65,7 @@ class DanceController extends Controller{
          
        
       
-// On l'enregistre notre objet $advert dans la base de données, par exemple
+
       $em = $this->getDoctrine()->getManager();
       $em->persist($inscription);
       $em->flush();
@@ -84,8 +84,13 @@ class DanceController extends Controller{
 public function coursAction() {
     
     
-    
-    return $this->render('VIVADanceBundle:Dance:cours.html.twig');
+    $em= $this->getDoctrine()
+            ->getManager();
+    $listCours= $em->getRepository('VIVADanceBundle:Cours')
+            ->findAll();
+    return $this->render('VIVADanceBundle:Dance:cours.html.twig', array(
+        'listCours'   => $listCours
+    ));
 }
 
 public function stageAction() {

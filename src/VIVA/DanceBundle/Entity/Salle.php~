@@ -36,22 +36,12 @@ class Salle
     private $capacite;
     
     /**
-     * @ORM\OneToOne(targetEntity="VIVA\DanceBundle\Entity\Lieu")
+     * @ORM\ManyToMany(targetEntity="VIVA\DanceBundle\Entity\Lieu")
      * @ORM\JoinColumn(nullable=false)
      */
     private $lieu;
     
-    /**
-     * @ORM\OneToOne(targetEntity="VIVA\DanceBundle\Entity\Lieu")
-     * @ORM\JoinColumn(nullable=true)
-     */
-    private $lieu_1;
-    
-    /**
-     * @ORM\OneToOne(targetEntity="VIVA\DanceBundle\Entity\Lieu")
-     * @ORM\JoinColumn(nullable=true)
-     */
-    private $lieu_2;
+   
     
 
 
@@ -110,4 +100,10 @@ class Salle
     {
         return $this->capacite;
     }
+
+   
+
+   
+
+  
 }

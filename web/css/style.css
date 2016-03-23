@@ -109,3 +109,8 @@ table img
 	border-color : black;
 	border-width : 1px
 }
+.panel-body{
+    border-style : solid;
+	border : radius;
+	background-color : #FEF6E9;
+}

@@ -3,6 +3,7 @@
 namespace VIVA\DanceBundle\Repository;
 
 use Doctrine\ORM\EntityRepository;
+use Doctrine\ORM\QueryBuilder;// pour utiliser l'objet query builder
 
 /**
  * CoursRepository
@@ -12,4 +13,41 @@ use Doctrine\ORM\EntityRepository;
  */
 class CoursRepository extends EntityRepository
 {
+        // réupére les annonce et les applications en même temps
+       /**
+        * Retourne les adverts avec toutes leurs applications
+        * 
+        * @return Cours
+        */
+       public function getCoursWithSalle() {
+           $qb = $this->createQueryBuilder('a')
+                   ->leftJoin('a.salle', 's')
+                   ->addSelect('s');
+           
+           return $qb->getQuery()
+                   ->getResult();
+                    
+       }
+       /**
+        * Retourne des Cours
+        * en fonctions de de professeurs
+        * 
+        * @param array $professeur
+        * @return Cours
+        */
+      public function getCoursWithProfesseur(array $professeurNames){
+          // on Fait la jointure
+          $qb = $this->createQueryBuilder('a')
+                    ->join('a.professeur', 'p')
+                    ->addSelect('p');
+          
+          // On filtre sur le nom des catégories  à l'aide de in
+          $qb->where($qb->expr()->in('p.nom', $professeurNames));
+                  
+                  
+             return $qb->getQuery()
+                     ->getResult()     
+                  ;
+          
+      }
 }

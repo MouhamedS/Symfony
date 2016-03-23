@@ -157,7 +157,7 @@ class Cours
      * @param \VIVA\DanceBundle\Entity\Niveeau $niveau
      * @return Cours
      */
-    public function addNiveau(\VIVA\DanceBundle\Entity\Niveeau $niveau)
+    public function addNiveau(\VIVA\DanceBundle\Entity\Niveau $niveau)
     {
         $this->niveau[] = $niveau;
 
@@ -169,7 +169,7 @@ class Cours
      *
      * @param \VIVA\DanceBundle\Entity\Niveeau $niveau
      */
-    public function removeNiveau(\VIVA\DanceBundle\Entity\Niveeau $niveau)
+    public function removeNiveau(\VIVA\DanceBundle\Entity\Niveau $niveau)
     {
         $this->niveau->removeElement($niveau);
     }
@@ -187,10 +187,10 @@ class Cours
     /**
      * Add professeur
      *
-     * @param \VIVA\DanceBundle\Entity\Niveeau $professeur
+     * @param \VIVA\DanceBundle\Entity\Professeur $professeur
      * @return Cours
      */
-    public function addProfesseur(\VIVA\DanceBundle\Entity\Niveeau $professeur)
+    public function addProfesseur(\VIVA\DanceBundle\Entity\Professeur $professeur)
     {
         $this->professeur[] = $professeur;
 
@@ -200,9 +200,9 @@ class Cours
     /**
      * Remove professeur
      *
-     * @param \VIVA\DanceBundle\Entity\Niveeau $professeur
+     * @param \VIVA\DanceBundle\Entity\Professeur $professeur
      */
-    public function removeProfesseur(\VIVA\DanceBundle\Entity\Niveeau $professeur)
+    public function removeProfesseur(\VIVA\DanceBundle\Entity\Professeur $professeur)
     {
         $this->professeur->removeElement($professeur);
     }
@@ -215,5 +215,51 @@ class Cours
     public function getProfesseur()
     {
         return $this->professeur;
+    }
+
+    /**
+     * Set salle
+     *
+     * @param \VIVA\DanceBundle\Entity\Salle $salle
+     * @return Cours
+     */
+    public function setSalle(\VIVA\DanceBundle\Entity\Salle $salle)
+    {
+        $this->salle = $salle;
+
+        return $this;
+    }
+
+    /**
+     * Get salle
+     *
+     * @return \VIVA\DanceBundle\Entity\Salle 
+     */
+    public function getSalle()
+    {
+        return $this->salle;
+    }
+
+    /**
+     * Set dance
+     *
+     * @param \VIVA\DanceBundle\Entity\Dance $dance
+     * @return Cours
+     */
+    public function setDance(\VIVA\DanceBundle\Entity\Dance $dance)
+    {
+        $this->dance = $dance;
+
+        return $this;
+    }
+
+    /**
+     * Get dance
+     *
+     * @return \VIVA\DanceBundle\Entity\Dance 
+     */
+    public function getDance()
+    {
+        return $this->dance;
     }
 }

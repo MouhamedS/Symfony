@@ -1,18 +1,143 @@
 {# empty Twig template #}
 
-<div class="Centrale">
-  {{ form_start(form) }}
-  {{form_errors(form)}}
-  <fieldset class="info">
-	<legend> Inscription</legend>
-        {{form_label(form.etat,"Etat d'inscription")}}
-        {{form_errors(form.etat)}}
-        {{form_widget(form.adherent.nom)}}
-        {#Nom#}
-        {{form_label(form.adherent.nom, "Nom")}}
-        {{form_errors(form.adherent.nom)}}
-        {{form_widget(form.adherent.nom)}}
-        
-  </fieldset>
-  {{form_end(form)}}
+<div class="panel panel-default">
+    <div class="panel-body">
+{{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+
+{#erreurs du formulaire en generale#}
+{{form_errors(form)}}
+
+{# Nom#}
+<div form-group>
+{# le label#}
+{{form_label(form.adherent.nom, "Nom",{'label_attr': {'class': 'col-sm-2 control-label'}})}}
+ 
+{# les erreurs dans le champ adhérent#}
+  {{form_errors(form.adherent.nom)}}
+  
+  <div class="col-sm-2">
+  {# le champ d'entrée#}
+  {{ form_widget(form.adherent.nom, {'attr': {'class': 'form-control'}}) }}
+  </div>
+</div>
+  
+  {# Prenom#}
+ <div form-group>
+{# le label#}
+{{form_label(form.adherent.prenom, "Prenom",{'label_attr': {'class': 'col-sm-2 control-label'}})}}
+ 
+{# les erreurs dans le champ adhérent#}
+  {{form_errors(form.adherent.prenom)}}
+  
+  <div class="col-sm-2">
+  {# le champ d'entrée#}
+  {{ form_widget(form.adherent.prenom, {'attr': {'class': 'form-control'}}) }}
+  </div>
+</div>  
+  
+  {# Date de Naissance#}
+  <div form-group>
+{# le label#}
+{{form_label(form.adherent.dateNaissance, "Date de Naissance ",{'label_attr': {'class': 'col-sm-2 control-label'}})}}
+ 
+{# les erreurs dans le champ adhérent#}
+  {{form_errors(form.adherent.dateNaissance)}}
+  
+  <div class="col-sm-2">
+  {# le champ d'entrée#}
+  {{ form_widget(form.adherent.dateNaissance, {'attr': {'class': 'form-control'}}) }}
+  </div>
+</div>
+  
+  {#email#}
+  <div form-group>
+{# le label#}
+{{form_label(form.adherent.email, "Email",{'label_attr': {'class': 'col-sm-2 control-label'}})}}
+ 
+{# les erreurs dans le champ adhérent#}
+  {{form_errors(form.adherent.email)}}
+  
+  <div class="col-sm-2">
+  {# le champ d'entrée#}
+  {{ form_widget(form.adherent.email, {'attr': {'class': 'form-control'}}) }}
+  </div>
+</div>
+  
+  {# etat Inscription#}
+  
+ <div form-group>
+{# le label#}
+{{form_label(form.etat, "Etat d'inscription ",{'label_attr': {'class': 'col-sm-2 control-label'}})}}
+ 
+{# les erreurs dans le champ adhérent#}
+  {{form_errors(form.etat)}}
+  
+  <div class="col-sm-2">
+  {# le champ d'entrée#}
+  {{ form_widget(form.etat, {'attr': {'class': 'form-control'}}) }}
+  </div>
+</div>
+  
+  {# Statut d'inscription#}
+   <div form-group>
+{# le label#}
+{{form_label(form.adherent.statut, "Statut",{'label_attr': {'class': 'col-sm-2 control-label'}})}}
+ 
+{# les erreurs dans le champ adhérent#}
+  {{form_errors(form.adherent.statut)}}
+  
+  <div class="col-sm-2">
+  {# le champ d'entrée#}
+  {{ form_widget(form.adherent.statut, {'attr': {'class': 'form-control'}}) }}
+  </div>
+</div>
+  
+  {# adrsse#}
+   <div form-group>
+{# le label#}
+{{form_label(form.adherent.adresse, "Adresse",{'label_attr': {'class': 'col-sm-2 control-label'}})}}
+ 
+{# les erreurs dans le champ adhérent#}
+  {{form_errors(form.adherent.adresse)}}
+  
+  <div class="col-sm-2">
+  {# le champ d'entrée#}
+  {{ form_widget(form.adherent.adresse, {'attr': {'class': 'form-control'}}) }}
+  </div>
+</div>
+  
+  {# code Postal#}
+  <div form-group>
+{# le label#}
+{{form_label(form.adherent.codePostal, "Code Postal",{'label_attr': {'class': 'col-sm-2 control-label'}})}}
+ 
+{# les erreurs dans le champ adhérent#}
+  {{form_errors(form.adherent.codePostal)}}
+  
+  <div class="col-sm-2">
+  {# le champ d'entrée#}
+  {{ form_widget(form.adherent.codePostal, {'attr': {'class': 'form-control'}}) }}
+  </div>
+</div>
+  
+  {# Ville#}
+   <div form-group>
+{# le label#}
+{{form_label(form.adherent.ville, "Ville",{'label_attr': {'class': 'col-sm-2 control-label'}})}}
+ 
+{# les erreurs dans le champ adhérent#}
+  {{form_errors(form.adherent.ville)}}
+  
+  <div class="col-sm-2">
+  {# le champ d'entrée#}
+  {{ form_widget(form.adherent.ville, {'attr': {'class': 'form-control'}}) }}
+  </div>
+</div>
+  
+  {{ form_widget(form.Valider, {'attr': {'class': 'btn btn-primary'}}) }}
+  {{ form_widget(form.Annuler, {'attr': {'class': 'btn btn-danger'}}) }}
+  
+{{form_end(form)}}
+</div>
+    
 </div>

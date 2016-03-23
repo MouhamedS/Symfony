@@ -17,7 +17,7 @@ class InscriptionType extends AbstractType
         $builder
             ->add('etat', 'text')
             ->add('adherent', new AdherentType())
-            ->add('forfait', new ForfaitType())
+           
             ->add('Valider', 'submit')
             ->add('Annuler', 'reset')
         ;

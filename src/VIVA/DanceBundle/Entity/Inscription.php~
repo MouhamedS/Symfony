@@ -43,7 +43,7 @@ class Inscription
     private $forfait;
     
     /**
-     * @ORM\OneToOne(targetEntity="VIVA\DanceBundle\Entity\Adherent")
+     * @ORM\OneToOne(targetEntity="VIVA\DanceBundle\Entity\Adherent", cascade={"persist"})
      * @ORM\JoinColumn(nullable=false)
      */
     private $adherent;

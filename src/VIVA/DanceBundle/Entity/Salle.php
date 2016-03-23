@@ -36,22 +36,12 @@ class Salle
     private $capacite;
     
     /**
-     * @ORM\OneToOne(targetEntity="VIVA\DanceBundle\Entity\Lieu")
+     * @ORM\ManyToMany(targetEntity="VIVA\DanceBundle\Entity\Lieu")
      * @ORM\JoinColumn(nullable=false)
      */
     private $lieu;
     
-    /**
-     * @ORM\OneToOne(targetEntity="VIVA\DanceBundle\Entity\Lieu")
-     * @ORM\JoinColumn(nullable=true)
-     */
-    private $lieu_1;
-    
-    /**
-     * @ORM\OneToOne(targetEntity="VIVA\DanceBundle\Entity\Lieu")
-     * @ORM\JoinColumn(nullable=true)
-     */
-    private $lieu_2;
+   
     
 
 
@@ -111,72 +101,49 @@ class Salle
         return $this->capacite;
     }
 
+   
+
+   
+
+  
     /**
-     * Set lieu
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->lieu = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add lieu
      *
      * @param \VIVA\DanceBundle\Entity\Lieu $lieu
      * @return Salle
      */
-    public function setLieu(\VIVA\DanceBundle\Entity\Lieu $lieu)
+    public function addLieu(\VIVA\DanceBundle\Entity\Lieu $lieu)
     {
-        $this->lieu = $lieu;
+        $this->lieu[] = $lieu;
 
         return $this;
+    }
+
+    /**
+     * Remove lieu
+     *
+     * @param \VIVA\DanceBundle\Entity\Lieu $lieu
+     */
+    public function removeLieu(\VIVA\DanceBundle\Entity\Lieu $lieu)
+    {
+        $this->lieu->removeElement($lieu);
     }
 
     /**
      * Get lieu
      *
-     * @return \VIVA\DanceBundle\Entity\Lieu 
+     * @return \Doctrine\Common\Collections\Collection 
      */
     public function getLieu()
     {
         return $this->lieu;
-    }
-
-    /**
-     * Set lieu_1
-     *
-     * @param \VIVA\DanceBundle\Entity\Lieu $lieu1
-     * @return Salle
-     */
-    public function setLieu1(\VIVA\DanceBundle\Entity\Lieu $lieu1 = null)
-    {
-        $this->lieu_1 = $lieu1;
-
-        return $this;
-    }
-
-    /**
-     * Get lieu_1
-     *
-     * @return \VIVA\DanceBundle\Entity\Lieu 
-     */
-    public function getLieu1()
-    {
-        return $this->lieu_1;
-    }
-
-    /**
-     * Set lieu_2
-     *
-     * @param \VIVA\DanceBundle\Entity\Lieu $lieu2
-     * @return Salle
-     */
-    public function setLieu2(\VIVA\DanceBundle\Entity\Lieu $lieu2 = null)
-    {
-        $this->lieu_2 = $lieu2;
-
-        return $this;
-    }
-
-    /**
-     * Get lieu_2
-     *
-     * @return \VIVA\DanceBundle\Entity\Lieu 
-     */
-    public function getLieu2()
-    {   
-        return $this->lieu_2;
     }
 }
